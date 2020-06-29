@@ -1,0 +1,86 @@
+[colors]
+background = ${xrdb:background:#000000}
+foreground = ${xrdb:foreground:#ffffff}
+foreground_alt = ${xrdb:color4:#ffffff}
+highlight_main = ${xrdb:color3:#00ffff}
+highlight_alt = ${xrdb:color1:#ffff00}
+
+[bar/main]
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+padding-left = 5
+padding-right = 5
+
+separator = ║
+separator-padding = 1
+separator-foreground = ${colors.foreground}
+
+fixed-center = true
+height = 30
+
+font-0 = Cozette
+
+modules-left = date cpu memory
+modules-center = bspwm
+modules-right = temperature network pulseaudio
+
+tray-position = right
+
+[module/bspwm]
+type = internal/bspwm
+
+pin-workspaces = false
+inline-mode = true
+
+label-focused-foreground = ${colors.highlight_main}
+label-focused-underline = ${colors.highlight_main}
+label-occupied-foreground = ${colors.highlight_main}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+use-ui-max = false
+
+format-volume = pulse: <bar-volume> <label-volume>
+
+label-muted = muted
+label-muted-foreground = ${colors.highlight_main}
+
+bar-volume-width = 12
+bar-volume-empty = ─
+bar-volume-fill = ═
+bar-volume-indicator = ╡
+
+[module/network]
+type = internal/network
+
+interface = enp6s0
+interval = 3
+
+label-connected = %ifname%: %local_ip% %downspeed% down, %upspeed% up
+label-connected-foreground = ${colors.foreground_alt}
+
+[module/temperature]
+type = internal/temperature
+
+warn-temperature = 70
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input
+
+label = temp: %temperature-c% (%temperature-f%)
+label-foreground = ${colors.foreground_alt}
+
+label-warn = temp WARNING: %temperature-c% (%temperature-f%)
+label-warn-foreground = ${colors.highlight_alt}
+
+[module/cpu]
+type = internal/cpu
+label = cpu: %percentage%% (%percentage-sum%% total)
+
+[module/memory]
+type = internal/memory
+label = ram: %gb_used%/%gb_total% (%percentage_used%%) used
+
+[module/date]
+type = internal/date
+date = %m-%d │ %H:%M:%S

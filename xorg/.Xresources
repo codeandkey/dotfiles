@@ -1,0 +1,14 @@
+urxvt*font: xft: Cozette
+urxvt*boldFont:
+urxvt*depth: 32
+urxvt*perl-ext-common: font-size
+
+urxvt*keysym.C-Up: font-size:increase
+urxvt*keysym.C-Down: font-size:decrease
+
+urxvt*pointerBlank: true
+urxvt*scrollBar: false
+urxvt*letterSpace: -1
+
+urxvt*background: #000000
+urxvt*foreground: #ffffff
