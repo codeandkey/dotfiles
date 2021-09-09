@@ -2,23 +2,17 @@
 
 # applications
 super + q
-	google-chrome-beta
+	firefox
 
 super + m
 	mumble
 
 super + Return
-	urxvt
-
-super + v
-	/opt/cisco/anyconnect/bin/vpnui
+    alacritty
 
 # wm control
 super + shift + q
 	bspc quit
-
-super + {minus, equal}
-    bspc config window_gap $(($(bspc config window_gap) {-,+} 16))
 
 # window control
 super + shift + c
@@ -29,14 +23,6 @@ super + f
 
 super + alt + {h, j, k, l}
 	bspc node @parent -r {-20,+20,-20,+20}
-
-# compositor toggle
-super + p
-	~/.scripts/toggle_compositor.sh
-
-# bar toggle
-super + b
-	~/.scripts/toggle_bar.sh
 
 # window navigation
 super + {h, j, k, l}
@@ -51,7 +37,7 @@ super + shift + {plus, minus}
 
 # gap control
 super + {equal, minus}
-	compositorbspc config window_gap $(($(bspc config window_gap) {+, -} 5))
+	bspc config window_gap $(($(bspc config window_gap) {+, -} 5))
 
 # desktop switching
 super + {1-9,0}
