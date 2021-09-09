@@ -3,10 +3,10 @@
 xrdb ~/.Xresources
 
 # start compositor
-compton &
+picom --backend glx --corner-radius 5 --blur-background --blur-method kawase &
 
 # reload wal
-wal -R
+wal -i $HOME/.wallpapers -a 0.8 &
 
 # start bar
 polybar main &
