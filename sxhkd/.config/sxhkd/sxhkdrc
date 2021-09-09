@@ -11,12 +11,12 @@ super + Return
     alacritty
 
 # wm control
-super + shift + q
+super + shift + Escape
 	bspc quit
 
 # window control
-super + shift + c
-	bspc node -c
+super + shift + {q, k}
+	bspc node -{c,k}
 
 super + f
 	bspc node -t '~fullscreen'
