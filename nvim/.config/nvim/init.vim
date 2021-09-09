@@ -10,7 +10,7 @@ call plug#end()
 
 " load powerline symbols for lightline
 let g:lightline = {
-	\ 'colorscheme': 'one',
+	\ 'colorscheme': 'simpleblack',
 	\ 'component': {
 	\   'lineinfo': ' %3l:%-2v',
 	\ },
