@@ -8,6 +8,12 @@ bspc monitor ^2 -d VI VII VIII IX X
 # show borders
 bspc config border_width 2
 
+# follow pointer
+bspc config focus_follows_pointer true
+
+# set gap
+bspc config window_gap 16
+
 bspc config presel_feedback_color "$(xgetres background)"
 bspc config normal_border_color "$(xgetres background)"
 bspc config active_border_color "$(xgetres background)"
