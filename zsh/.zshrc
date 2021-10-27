@@ -15,7 +15,7 @@ plugins=(git)
 
 # set right prompt
 setopt PROMPT_SUBST
-export PROMPT='%~ %# '
+export PROMPT='%~$(~/.scripts/git_branch.sh) %# '
 export RPROMPT='[$(cat /tmp/bat_status)] [$(cat /tmp/wlan_status)]'
 
 # default editor
