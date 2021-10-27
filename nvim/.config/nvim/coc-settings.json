@@ -1,0 +1,35 @@
+{
+    "rust-analyzer": {
+        "updates": {
+            "prompt": false
+        }
+    },
+    "languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "filetypes": [
+                "c",
+                "cpp",
+                "h",
+                "objc",
+                "objcpp"
+            ],
+            "rootPatterns": [
+                ".ccls",
+                "compile_commands.json",
+                ".vim/",
+                ".git/",
+                ".hg/",
+            ],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls",
+                }
+            }
+        },
+    },
+    "explorer.width": 30,
+    "explorer.previewAction.onHover": true,
+    "explorer.icon.enableVimDevicons": false,
+    "clangd.path": "/usr/bin/clangd"
+}
