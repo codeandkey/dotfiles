@@ -13,5 +13,8 @@ feh --bg-fill ~/.wallpapers/black.png &
 # start battery watch
 ~/.scripts/bat_watch.sh &
 
+# start wlan watch
+~/.scripts/wlan_watch.sh &
+
 sxhkd &
 exec bspwm -c ~/.config/bspwm/bspwmrc
