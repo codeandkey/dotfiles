@@ -8,7 +8,6 @@ export ZSH="/home/jtst/.oh-my-zsh"
 
 # shell config
 
-ZSH_THEME="mortalscumbag"
 DISABLE_AUTO_UPDATE="true"
 COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
@@ -16,7 +15,12 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(git)
 
 # oh-my-zsh
-source $ZSH/oh-my-zsh.sh
+#source $ZSH/oh-my-zsh.sh
+
+# set right prompt
+setopt PROMPT_SUBST
+export PROMPT='%~ %# '
+export RPROMPT='[bat $(cat /tmp/bat_status)]'
 
 # default editor
 export EDITOR=nvim
