@@ -20,7 +20,7 @@ plugins=(git)
 # set right prompt
 setopt PROMPT_SUBST
 export PROMPT='%~ %# '
-export RPROMPT='[bat $(cat /tmp/bat_status)]'
+export RPROMPT='[$(cat /tmp/bat_status)] [ $(cat /tmp/wlan_status)]'
 
 # default editor
 export EDITOR=nvim
