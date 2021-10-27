@@ -1,9 +1,5 @@
 # zshrc
 
-# apply wal scheme
-(cat ~/.cache/wal/sequences &)
-source ~/.cache/wal/colors-tty.sh
-
 export ZSH="/home/jtst/.oh-my-zsh"
 
 # shell config
