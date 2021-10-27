@@ -24,17 +24,6 @@ while :; do
     fi
 
     if [ -n "$discharging" ]; then
-
-        if [ $pct -lt $WARN ] && [ -e /tmp/bat_above_warn ]; then
-            if [ -e /tmp/bat_above_warn ]; then
-                rm /tmp/bat_above_warn
-                notify-send --urgency=normal 'Battery low' "Battery at $pct%, $time"
-            fi
-
-            col="\e[33;1m"
-            echo -ne "%{$col%}\uf544 $pct%{\e[0m%}" > $status_path
-        fi
-
         if [ $pct -lt $CRIT ]; then
             if [ -e /tmp/bat_above_crit ]; then
                 rm /tmp/bat_above_crit
@@ -43,8 +32,18 @@ while :; do
 
             col="\e[31;1m"
             echo -ne "%{$col%}\ufad5 $pct%{\e[0m%}" > $status_path
-        fi
+        elif [ $pct -lt $WARN ] && [ -e /tmp/bat_above_warn ]; then
+            if [ -e /tmp/bat_above_warn ]; then
+                rm /tmp/bat_above_warn
+                notify-send --urgency=normal 'Battery low' "Battery at $pct%, $time"
+            fi
 
+            col="\e[33;1m"
+            echo -ne "%{$col%}\uf544 $pct%{\e[0m%}" > $status_path
+        else
+            col="\e[33;1m"
+            echo -ne "\uf544 $pct" > $status_path
+        fi
     elif [ -n "$unknown" ]; then
         echo -ne "? $pct" > $status_path 
     else
