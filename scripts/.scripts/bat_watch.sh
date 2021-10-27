@@ -7,12 +7,12 @@ WARN=30
 CRIT=5
 
 status_path=/tmp/bat_status
-time=$(acpi | grep -io "[0-9][0-9]:[0-9]*[0-9]*:[0-9]*[0-9]* remaining")
 
 while :; do
     discharging=$(acpi | grep -i discharging)
     unknown=$(acpi | grep -i unknown)
     pct=$(acpi | grep -io "[0-9]*[0-9]*\%" | cut -d'%' -f1)
+    time=$(acpi | grep -io "[0-9][0-9]:[0-9]*[0-9]*:[0-9]*[0-9]* remaining")
     col=
 
     if [ $pct -ge $WARN ]; then
