@@ -32,6 +32,7 @@ while :; do
             fi
 
             col="\e[33;1m"
+            echo -ne "%{$col%}\uf544 $pct%{\e[0m%}" > $status_path
         fi
 
         if [ $pct -lt $CRIT ]; then
@@ -41,14 +42,14 @@ while :; do
             fi
 
             col="\e[31;1m"
+            echo -ne "%{$col%}\ufad5 $pct%{\e[0m%}" > $status_path
         fi
 
-        echo -ne "%{$col%}$pct \uf544%{\e[0m%}" > $status_path
     elif [ -n "$unknown" ]; then
-        echo -ne "$pct ?" > $status_path 
+        echo -ne "? $pct" > $status_path 
     else
         col="\e[34;1m"
-        echo -ne "%{$col%}$pct \uf55c%{\e[0m%}" > $status_path
+        echo -ne "%{$col%}\uf55c $pct%{\e[0m%}" > $status_path
     fi
 
     sleep $INTERVAL
