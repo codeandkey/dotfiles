@@ -19,14 +19,14 @@
                 "compile_commands.json",
                 ".vim/",
                 ".git/",
-                ".hg/",
+                ".hg/"
             ],
             "initializationOptions": {
                 "cache": {
-                    "directory": "/tmp/ccls",
+                    "directory": "/tmp/ccls"
                 }
             }
-        },
+        }
     },
     "explorer.width": 30,
     "explorer.previewAction.onHover": true,

@@ -1,7 +1,7 @@
 [colors]
 background = ${xrdb:background:#000000}
 foreground = ${xrdb:foreground:#ffffff}
-foreground_alt = ${xrdb:color4:#ffffff}
+foreground_alt = ${xrdb:color4:#00ff00}
 highlight_main = ${xrdb:color3:#00ffff}
 highlight_alt = ${xrdb:color1:#ffff00}
 
@@ -17,9 +17,9 @@ separator-padding = 1
 separator-foreground = ${colors.foreground}
 
 fixed-center = true
-height = 30
+height = 16
 
-font-0 = Cozette
+font-0 = UbuntuMono Nerd Font Mono
 
 modules-left = date cpu memory
 modules-center = bspwm
@@ -42,7 +42,7 @@ type = internal/pulseaudio
 
 use-ui-max = false
 
-format-volume = pulse: <bar-volume> <label-volume>
+format-volume = pulse <label-volume>
 
 label-muted = muted
 label-muted-foreground = ${colors.highlight_main}

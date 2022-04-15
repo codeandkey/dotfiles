@@ -1,20 +1,17 @@
+# codeandkey-dotfiles
 # xinitrc
-xrdb ~/.Xresources
 
-# add python to PATH
+# add local python PATH
 export PATH=$PATH:$HOME/.local/bin
 
-# apply background
+# clear background
 feh --bg-fill ~/.wallpapers/black.png &
 
 # start notifications
 /usr/lib/notify-osd-customizable/notify-osd &
 
-# start battery watch
-~/.scripts/bat_watch.sh &
-
-# start wlan watch
-~/.scripts/wlan_watch.sh &
-
+# keybinds
 sxhkd &
+
+# hand off to wm
 exec bspwm -c ~/.config/bspwm/bspwmrc

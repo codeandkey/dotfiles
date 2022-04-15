@@ -1,7 +1,0 @@
-colors.scheme=white
-colors.override.terminal=false
-
-visualizer.fps=144
-audio.stereo.enabled=true
-visualizer.spectrum.bar.width=1
-visualizer.spectrum.bar.spacing=1
