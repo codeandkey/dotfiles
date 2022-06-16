@@ -7,7 +7,7 @@ super + q
 	firefox
 
 super + {Escape, r}
-    rofi -theme Monokai -show run -location 1 -xoffset 37 -yoffset 37 -font "Fira Code 18"
+	rofi -theme Monokai -show run -location 1 -xoffset 37 -yoffset 37 -font "Fira Code 18"
 
 # wm navigation
 

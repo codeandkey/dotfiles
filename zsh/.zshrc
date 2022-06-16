@@ -10,11 +10,10 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # aliases
 alias ls='ls --color=auto'
 alias vim='nvim'
-alias g=git
 
 # set right prompt
 setopt PROMPT_SUBST
 export PROMPT='%~$(~/.util/git_branch.sh) %# '
 
-# vars 
+# default editor
 export EDITOR=nvim
