@@ -26,13 +26,13 @@ module-margin-right = 1
 
 override-redirect = true
 
-font-0 = Terminus:size=20
-font-1 = Terminus:size=24
-font-2 = Siji:size=14
+font-0 = UbuntuMono Nerd Font Mono:size=16
+font-1 = UbuntuMono Nerd Font Mono:size=16
+font-2 = UbuntuMono Nerd Font Mono:size=16
 
 modules-left =
 modules-center = bspwm
-modules-right = alsa lan date
+modules-right = lan date
 
 tray-position = right
 tray-padding = 10
