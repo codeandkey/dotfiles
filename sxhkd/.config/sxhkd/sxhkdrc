@@ -1,48 +1,50 @@
-# codeandkey-dotfiles
-# sxhkdrc
-
 # applications
-super + q
-	firefox
-
-super + m
-	mumble
 
 super + Return
 	alacritty
 
-# wm control
-super + shift + Escape
-	bspc quit
+super + q
+	firefox
 
-# window control
-super + shift + {q, k}
-	bspc node -{c,k}
+super + {Escape, r}
+    rofi -theme Monokai -show run -location 1 -xoffset 37 -yoffset 37 -font "Fira Code 18"
 
-super + f
-	bspc node -t '~fullscreen'
+# wm navigation
 
-super + alt + {h, j, k, l}
-	bspc node @parent -r {-20,+20,-20,+20}
-
-# window navigation
 super + {h, j, k, l}
 	bspc node -f {west, south, north, east}
 
 super + shift + {h, j, k, l}
 	bspc node -p {west, south, north, east}
 
-# pulse control
-super + shift + {plus, minus}
-	pactl -- set-sink-volume 0 {+,-}5%
+# desktop navigation
 
-# gap control
-super + {equal, minus}
-	bspc config window_gap $(($(bspc config window_gap) {+, -} 5))
-
-# desktop switching
 super + {1-9,0}
 	bspc desktop -f ^{1-9,10}
 
+# window control
+
+super + shift + q
+	bspc node -c
+
 super + shift + {1-9,0}
 	bspc node -d ^{1-9,10}
+
+super + alt + {h, j, k, l}
+	bspc node @parent -r {-64,+64,-64,+64}
+
+super + f
+	bspc node -t '~fullscreen'
+
+# wm control
+
+super + shift + q
+	bspc quit
+
+# backlight control
+
+XF86MonBrightnessDown
+	xbacklight -dec 10
+
+XF86MonBrightnessUp
+	xbacklight -inc 10

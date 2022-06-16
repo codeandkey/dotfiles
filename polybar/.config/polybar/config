@@ -1,86 +1,131 @@
 [colors]
-background = ${xrdb:background:#000000}
-foreground = ${xrdb:foreground:#ffffff}
-foreground_alt = ${xrdb:color4:#00ff00}
-highlight_main = ${xrdb:color3:#00ffff}
-highlight_alt = ${xrdb:color1:#ffff00}
+background = #00000000
+foreground = #555
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
 
 [bar/main]
+width = 100%
+height = 30
+radius = 0
+fixed-center = true
+offset-y = 5
+
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-padding-left = 5
-padding-right = 5
+line-size = 0
+border-size = 2
+border-bottom-color = #22000000
 
-separator = ║
-separator-padding = 1
-separator-foreground = ${colors.foreground}
+padding-left = 0
+padding-right = 3
+module-margin-left = 1
+module-margin-right = 1
 
-fixed-center = true
-height = 16
+override-redirect = true
 
-font-0 = UbuntuMono Nerd Font Mono
+font-0 = Terminus:size=20
+font-1 = Terminus:size=24
+font-2 = Siji:size=14
 
-modules-left = date cpu memory
+modules-left =
 modules-center = bspwm
-modules-right = temperature network pulseaudio
+modules-right = alsa lan date
 
 tray-position = right
+tray-padding = 10
+
+cursor-click = pointer
+cursor-scroll = ns-resize
 
 [module/bspwm]
 type = internal/bspwm
 
-pin-workspaces = false
-inline-mode = true
+label-focused = %name%
+label-occupied =
+label-urgent =
+label-empty = 
 
-label-focused-foreground = ${colors.highlight_main}
-label-focused-underline = ${colors.highlight_main}
-label-occupied-foreground = ${colors.highlight_main}
+[module/xbacklight]
+type = internal/xbacklight
 
-[module/pulseaudio]
-type = internal/pulseaudio
+format = <label> <bar>
+label = 
 
-use-ui-max = false
+bar-width = 10
+bar-indicator = |
+bar-indicator-foreground = ${colors.foreground}
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #228a91
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.foreground}
 
-format-volume = pulse <label-volume>
-
-label-muted = muted
-label-muted-foreground = ${colors.highlight_main}
-
-bar-volume-width = 12
-bar-volume-empty = ─
-bar-volume-fill = ═
-bar-volume-indicator = ╡
-
-[module/network]
+[module/lan]
 type = internal/network
+interface = enp4s0
+interval = 3.0
 
-interface = enp6s0
-interval = 3
+format-connected = 直 <label-connected>
+label-connected = %local_ip%
 
-label-connected = %ifname%: %local_ip% %downspeed% down, %upspeed% up
-label-connected-foreground = ${colors.foreground_alt}
-
-[module/temperature]
-type = internal/temperature
-
-warn-temperature = 70
-hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input
-
-label = temp: %temperature-c% (%temperature-f%)
-label-foreground = ${colors.foreground_alt}
-
-label-warn = temp WARNING: %temperature-c% (%temperature-f%)
-label-warn-foreground = ${colors.highlight_alt}
-
-[module/cpu]
-type = internal/cpu
-label = cpu: %percentage%% (%percentage-sum%% total)
-
-[module/memory]
-type = internal/memory
-label = ram: %gb_used%/%gb_total% (%percentage_used%%) used
+format-disconnected = 睊
 
 [module/date]
 type = internal/date
-date = %m-%d │ %H:%M:%S
+interval = 5
+
+date =
+date-alt = " %Y-%m-%d"
+
+time = %H:%M
+time-alt = %H:%M:%S
+
+label = %date% %time%
+
+[module/alsa]
+type = internal/alsa
+
+format-volume = <label-volume> <bar-volume>
+label-volume = 墳
+label-volume-foreground = ${root.foreground}
+
+format-muted-foreground = ${colors.foreground}
+label-muted = ﱝ
+
+bar-volume-width = 10
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-fill-foreground = #228a91
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+
+format-charging = ﮣ <label-charging>
+format-discharging = <animation-discharging> <label-discharging>
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground}
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-foreground = ${colors.foreground}
+animation-discharging-framerate = 750
+
+[settings]
+screenchange-reload = true
+
+; vim:ft=dosini
