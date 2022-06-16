@@ -6,6 +6,8 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'bfrg/vim-cpp-modern'
+Plug 'cocopon/iceberg.vim'
 
 call plug#end()
 
@@ -28,7 +30,6 @@ let g:lightline = {
 
 " editor behavior
 set number
-set relativenumber
 set laststatus=2
 set guicursor=
 
@@ -37,4 +38,20 @@ set shiftwidth=4
 set tabstop=4
 
 syntax on
-colorscheme default
+
+" merge signs into LN
+set signcolumn=number
+
+colorscheme iceberg
+
+" colors
+hi Pmenu ctermfg=white ctermbg=black
+hi PmenuSel ctermfg=white ctermbg=black
+hi PmenuSbar ctermfg=white ctermbg=black
+hi PmenuThumb ctermfg=white ctermbg=black
+
+hi LineNr cterm=bold ctermfg=DarkGrey ctermbg=black
+
+set t_ZH=[3m
+set t_ZR=[23m
+hi Comment cterm=italic
