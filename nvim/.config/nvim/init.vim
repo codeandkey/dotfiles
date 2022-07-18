@@ -50,7 +50,7 @@ hi PmenuSel ctermfg=white ctermbg=black
 hi PmenuSbar ctermfg=white ctermbg=black
 hi PmenuThumb ctermfg=white ctermbg=black
 
-hi LineNr cterm=bold ctermfg=DarkGrey ctermbg=none
+hi LineNr cterm=bold ctermfg=grey ctermbg=none
 hi Normal ctermbg=none
 
 set t_ZH=[3m
