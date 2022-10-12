@@ -50,9 +50,12 @@ hi PmenuSel ctermfg=white ctermbg=black
 hi PmenuSbar ctermfg=white ctermbg=black
 hi PmenuThumb ctermfg=white ctermbg=black
 
-hi LineNr cterm=bold ctermfg=grey ctermbg=none
+hi LineNr ctermfg=DarkGrey ctermbg=none
 hi Normal ctermbg=none
 
 set t_ZH=[3m
 set t_ZR=[23m
 hi Comment cterm=italic
+
+" highlight long lines
+match Error /\%81v.\+/
