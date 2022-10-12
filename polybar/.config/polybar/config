@@ -1,16 +1,17 @@
 [colors]
 background = #00000000
-foreground = #555
+foreground = #fff
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
 [bar/main]
 width = 100%
-height = 30
+height = 35
 radius = 0
 fixed-center = true
-offset-y = 5
+offset-y = 0
+wm-restack = bspwm
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -19,23 +20,23 @@ line-size = 0
 border-size = 2
 border-bottom-color = #22000000
 
-padding-left = 0
+padding-left = 3
 padding-right = 3
 module-margin-left = 1
 module-margin-right = 1
 
 override-redirect = true
 
-font-0 = UbuntuMono Nerd Font Mono:size=16
-font-1 = UbuntuMono Nerd Font Mono:size=16
-font-2 = UbuntuMono Nerd Font Mono:size=16
+font-0 = FiraCode Nerd Font Mono:size=20;6
+font-1 = FiraCode Nerd Font Mono:size=20;6
+font-2 = FiraCode Nerd Font Mono:size=20;6
 
-modules-left =
-modules-center = bspwm
-modules-right = lan date
+modules-left = bspwm
+modules-center =
+modules-right = lan battery date
 
 tray-position = right
-tray-padding = 10
+tray-margin-top = 10
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -44,9 +45,21 @@ cursor-scroll = ns-resize
 type = internal/bspwm
 
 label-focused = %name%
-label-occupied =
-label-urgent =
-label-empty = 
+label-occupied = %name%
+label-urgent = %name%
+label-empty = %name%
+
+label-separator = " "
+label-separator-padding = 0
+
+label-focused-foreground = #000
+label-focused-background = #fff
+
+label-occupied-foreground = #fff
+label-occupied-background = #000
+
+label-empty-foreground = #444
+label-empty-background = #000
 
 [module/xbacklight]
 type = internal/xbacklight
@@ -67,13 +80,17 @@ bar-empty-foreground = ${colors.foreground}
 
 [module/lan]
 type = internal/network
-interface = enp4s0
+interface = wlp3s0
 interval = 3.0
 
-format-connected = 直 <label-connected>
+format-connected = <label-connected>
 label-connected = %local_ip%
 
-format-disconnected = 睊
+format-disconnected = WLAN down
+format-disconnected-foreground = #ff0
+
+format-connected-prefix = "WLAN "
+format-connected-prefix-foreground = #0f0
 
 [module/date]
 type = internal/date
@@ -112,18 +129,28 @@ type = internal/battery
 battery = BAT0
 adapter = AC
 full-at = 98
+low-at = 8
 
-format-charging = ﮣ <label-charging>
-format-discharging = <animation-discharging> <label-discharging>
+format-charging = <label-charging>
+format-discharging = <label-discharging>
+format-full = FULL
+format-full-foreground = #0ff
 
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground}
+format-low = <animation-low> <label-discharging>
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-foreground = ${colors.foreground}
-animation-discharging-framerate = 750
+format-charging-prefix = "CHG "
+format-charging-prefix-foreground = #0f0
+
+format-discharging-prefix = "DIS "
+format-discharging-prefix-foreground = #ff0
+
+animation-low-0-foreground = #f00
+animation-low-0 = CRIT
+
+animation-low-1-foreground = #300
+animation-low-1 = CRIT
+
+animation-low-framerate = 300
 
 [settings]
 screenchange-reload = true
