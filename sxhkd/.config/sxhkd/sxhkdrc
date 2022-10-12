@@ -9,6 +9,10 @@ super + q
 super + {Escape, r}
 	rofi -theme Monokai -show run -location 1 -xoffset 37 -yoffset 37 -font "Fira Code 18"
 
+# mouse fix
+super + m
+    fixmouse
+
 # wm navigation
 
 super + {h, j, k, l}
@@ -38,7 +42,7 @@ super + f
 
 # wm control
 
-super + shift + q
+super + shift + Escape
 	bspc quit
 
 # backlight control
