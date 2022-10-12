@@ -18,8 +18,5 @@ export PROMPT='$(~/.util/sshnot.sh)%~$(~/.util/git_branch.sh) %# '
 # default editor
 export EDITOR=nvim
 
-# no shell vim binds
+# emacs shell binds
 bindkey -e
-
-# tty colors
-[ -n "$(echo $TTY | grep tty)" ] && source ~/.cache/wal/colors-tty.sh
