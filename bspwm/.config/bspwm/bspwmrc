@@ -20,7 +20,7 @@ bspc config -m ^1 top_padding 37
 bspc config focus_follows_pointer true
 
 # make borders bigger
-bspc config border_width 2
+bspc config border_width 0
 
 # make a window gap
 bspc config window_gap 0
