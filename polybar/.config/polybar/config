@@ -130,6 +130,7 @@ battery = BAT0
 adapter = AC
 full-at = 98
 low-at = 8
+interval=10
 
 format-charging = <label-charging>
 format-discharging = <label-discharging>
