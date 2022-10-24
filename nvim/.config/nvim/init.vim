@@ -33,6 +33,7 @@ set number
 set laststatus=2
 set guicursor=
 
+" indentation
 set expandtab
 set shiftwidth=4
 set tabstop=4
@@ -42,20 +43,26 @@ syntax on
 " merge signs into LN
 set signcolumn=number
 
+" colors
 colorscheme iceberg
 
-" colors
 hi Pmenu ctermfg=white ctermbg=black
 hi PmenuSel ctermfg=white ctermbg=black
 hi PmenuSbar ctermfg=white ctermbg=black
 hi PmenuThumb ctermfg=white ctermbg=black
 
-hi LineNr ctermfg=DarkGrey ctermbg=none
+hi LineNr ctermfg=grey ctermbg=none
+hi LineNrAbove ctermfg=darkgrey ctermbg=none
+hi LineNrBelow ctermfg=darkgrey ctermbg=none
 hi Normal ctermbg=none
 
+" italicize comments
 set t_ZH=[3m
 set t_ZR=[23m
 hi Comment cterm=italic
 
 " highlight long lines
 match Error /\%81v.\+/
+
+" cursor position save
+autocmd BufReadPost * silent! normal! g`"zv
