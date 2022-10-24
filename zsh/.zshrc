@@ -20,3 +20,6 @@ export EDITOR=nvim
 
 # emacs shell binds
 bindkey -e
+
+# pretty gpg prompts
+export GPG_TTY=$(tty)
