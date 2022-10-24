@@ -30,6 +30,7 @@ let g:lightline = {
 
 " editor behavior
 set number
+set relativenumber
 set laststatus=2
 set guicursor=
 
@@ -51,7 +52,7 @@ hi PmenuSel ctermfg=white ctermbg=black
 hi PmenuSbar ctermfg=white ctermbg=black
 hi PmenuThumb ctermfg=white ctermbg=black
 
-hi LineNr ctermfg=grey ctermbg=none
+hi LineNr ctermfg=white ctermbg=none
 hi LineNrAbove ctermfg=darkgrey ctermbg=none
 hi LineNrBelow ctermfg=darkgrey ctermbg=none
 hi Normal ctermbg=none
