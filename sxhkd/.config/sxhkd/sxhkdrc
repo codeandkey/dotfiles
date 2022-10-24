@@ -9,7 +9,11 @@ super + q
 super + {Escape, r}
 	rofi -theme Monokai -show run -location 1 -xoffset 37 -yoffset 37 -font "Fira Code 18"
 
+super + v
+    /opt/cisco/anyconnect/bin/vpnui
+
 # mouse fix
+
 super + m
     fixmouse
 
