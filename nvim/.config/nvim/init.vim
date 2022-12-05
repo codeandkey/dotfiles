@@ -1,13 +1,11 @@
-" codeandkey-dotfiles
-" vimrc
-
-" init vim-plug
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'bfrg/vim-cpp-modern'
 Plug 'cocopon/iceberg.vim'
+Plug 'numirias/semshi', { 'do': 'UpdateRemotePlugins' }
+Plug 'nvim-treesitter/nvim-treesitter'
 
 call plug#end()
 
@@ -27,6 +25,9 @@ let g:lightline = {
 	\ 'separator': { 'left': '▓░', 'right': '░▓' },
 	\ 'subseparator': { 'left': '║', 'right': '║' }
 	\ }
+
+" python highlighting
+let g:semshi#simplify_markup=v:false
 
 " editor behavior
 set number
