@@ -31,5 +31,6 @@
     "explorer.width": 30,
     "explorer.previewAction.onHover": true,
     "explorer.icon.enableVimDevicons": false,
+    "diagnostic.checkCurrentLine": true,
     "clangd.path": "/usr/bin/clangd"
 }
