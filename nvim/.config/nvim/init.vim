@@ -68,3 +68,6 @@ match Error /\%81v.\+/
 
 " cursor position save
 autocmd BufReadPost * silent! normal! g`"zv
+
+" smooth paging
+set nostartofline
