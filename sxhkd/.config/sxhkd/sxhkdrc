@@ -6,6 +6,9 @@ super + Return
 super + q
 	firefox
 
+super + p
+    prospect-mail
+
 super + {Escape, r}
 	rofi -theme Monokai -show run -location 1 -xoffset 37 -yoffset 37 -font "Fira Code 18"
 
