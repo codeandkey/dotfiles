@@ -24,6 +24,7 @@ bspc config border_width 0
 
 # bar padding
 bspc config top_padding 25
+bspc config -m '^2' top_padding 0
 
 # make a window gap
 bspc config window_gap 0
