@@ -33,7 +33,7 @@ font-2 = FiraCode Nerd Font Mono:size=20;6
 
 modules-left = bspwm
 modules-center =
-modules-right = lan battery date
+modules-right = vpn lan battery date
 
 tray-position = right
 tray-margin-top = 10
@@ -91,6 +91,15 @@ format-disconnected-foreground = #ff0
 
 format-connected-prefix = "WLAN "
 format-connected-prefix-foreground = #0f0
+
+[module/vpn]
+type = internal/network
+interface = tun0 
+interval = 3.0
+
+format-connected = <label-connected>
+format-connected-foreground = #00ccff
+label-connected = KHAN
 
 [module/date]
 type = internal/date
