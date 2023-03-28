@@ -66,3 +66,6 @@ autocmd BufReadPost * silent! normal! g`"zv
 
 " smooth paging
 set nostartofline
+
+" colors
+colorscheme iceberg
