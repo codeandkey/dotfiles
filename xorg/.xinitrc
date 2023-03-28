@@ -14,5 +14,14 @@ xset r rate 250 30
 # notification daemon
 /usr/lib/notify-customizable/notify-osd &
 
+# battery signal
+batsignal &
+
+# redshift
+redshift -l 42.0308:-93.6319 &
+
+# GTK fix
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
+
 # window manager
 exec bspwm -c $HOME/.config/bspwm/bspwmrc
