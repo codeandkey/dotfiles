@@ -3,9 +3,8 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'bfrg/vim-cpp-modern'
-Plug 'cocopon/iceberg.vim'
-Plug 'numirias/semshi', { 'do': 'UpdateRemotePlugins' }
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'github/copilot.vim'
+Plug 'tomasiser/vim-code-dark'
 
 call plug#end()
 
@@ -26,9 +25,6 @@ let g:lightline = {
 	\ 'subseparator': { 'left': '║', 'right': '║' }
 	\ }
 
-" python highlighting
-let g:semshi#simplify_markup=v:false
-
 " editor behavior
 set number
 set relativenumber
@@ -37,16 +33,15 @@ set guicursor=
 
 " indentation
 set expandtab
-set shiftwidth=4
-set tabstop=4
-
-syntax on
+set shiftwidth=2
+set tabstop=2
 
 " merge signs into LN
 set signcolumn=number
 
 " colors
-colorscheme iceberg
+syntax on
+colorscheme codedark
 
 hi Pmenu ctermfg=white ctermbg=black
 hi PmenuSel ctermfg=white ctermbg=black
