@@ -1,19 +1,18 @@
-#
-# ~/.bashrc
-#
-
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
-alias ls='ls --color=auto'
-PS1='$(~/.util/sshnot.sh)\w$(~/.util/git_branch.sh) $ '
+# codeandkey-dotfiles
+# bashrc
 
 # aliases
 alias ls='ls --color=auto'
+alias vim=nvim
 
-# editor
-which nvim && alias vim=nvim
-export EDITOR=vim
+export PATH=$PATH:~/.local/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.local/lib
 
-# gpg
+# pretty gpg prompts
 export GPG_TTY=$(tty)
+
+# defauilt editor
+export EDITOR=nvim
+
+# bash prompt
+export PROMPT_COMMAND='PS1="$(~/.util/bash_prompt.sh) "'
