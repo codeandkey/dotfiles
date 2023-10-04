@@ -3,8 +3,9 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'bfrg/vim-cpp-modern'
+Plug 'cocopon/iceberg.vim'
 Plug 'github/copilot.vim'
-Plug 'tomasiser/vim-code-dark'
+Plug 'rhysd/vim-clang-format'
 
 call plug#end()
 
@@ -69,3 +70,5 @@ set nostartofline
 
 " colors
 colorscheme iceberg
+
+nnoremap <silent> <C-I> :ClangFormat <CR>
