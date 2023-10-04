@@ -20,20 +20,20 @@ line-size = 0
 border-size = 2
 border-bottom-color = #22000000
 
-padding-left = 3
-padding-right = 3
-module-margin-left = 1
+padding-left = 1
+padding-right = 1
+module-margin-left = 0
 module-margin-right = 1
 
 override-redirect = true
 
-font-0 = FiraCode Nerd Font Mono:size=20;6
-font-1 = FiraCode Nerd Font Mono:size=20;6
-font-2 = FiraCode Nerd Font Mono:size=20;6
+font-0 = Terminess Nerd Font Mono:size=20;6
+font-1 = Font Awesome 6 Free:size=18;4
+font-2 = Terminess Nerd Font Mono:size=20;6
 
 modules-left = bspwm
 modules-center =
-modules-right = vpn lan battery date
+modules-right = vpn wlan lan battery date
 
 tray-position = right
 tray-margin-top = 10
@@ -80,26 +80,198 @@ bar-empty-foreground = ${colors.foreground}
 
 [module/lan]
 type = internal/network
+interface = enp6s0
+interval = 3.0
+
+; Available tags:
+;   <label-connected> (default)
+;   <ramp-signal>
+format-connected = <label-connected>
+
+; Available tags:
+;   <label-disconnected> (default)
+format-disconnected = <label-disconnected>
+
+; Available tags:
+;   <label-connected> (default)
+;   <label-packetloss>
+;   <animation-packetloss>
+format-packetloss = <animation-packetloss> <label-connected>
+
+; All labels support the following tokens:
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %local_ip6% [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %upspeed%   [wireless+wired]
+;   %downspeed% [wireless+wired]
+;   %netspeed%  [wireless+wired] (%upspeed% + %downspeed%) (New in version 3.6.0)
+;   %linkspeed% [wired]
+;   %mac%       [wireless+wired] (New in version 3.6.0)
+
+; Default: %ifname% %local_ip%
+label-connected = [%upspeed:6% > %ifname% %signal%% > %downspeed:6%]
+label-connected-foreground = #32eba4
+
+; Default: (none)
+label-disconnected = %ifname% DOWN
+label-disconnected-foreground = #eb3464
+
+; Default: (none)
+;label-packetloss = %essid%
+;label-packetloss-foreground = #eefafafa
+
+; Only applies if <ramp-signal> is used
+ramp-signal-0 = s0%
+ramp-signal-0-foreground = #ff0000
+ramp-signal-1 = s20%
+ramp-signal-1-foreground = #ff0000
+ramp-signal-2 = s40%
+ramp-signal-2-foreground = #ffff00
+ramp-signal-3 = s60%
+ramp-signal-3-foreground = #ffff00
+ramp-signal-4 = s80%
+ramp-signal-4-foreground = #00ff00
+ramp-signal-5 = s100%
+ramp-signal-5-foreground = #00ff00
+
+; Only applies if <animation-packetloss> is used
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = #000000
+
+; Framerate in milliseconds
+animation-packetloss-framerate = 500
+
+[module/wlan]
+type = internal/network
 interface = wlp3s0
 interval = 3.0
 
+; Available tags:
+;   <label-connected> (default)
+;   <ramp-signal>
 format-connected = <label-connected>
-label-connected = %local_ip%
 
-format-disconnected = WLAN down
-format-disconnected-foreground = #ff0
+; Available tags:
+;   <label-disconnected> (default)
+format-disconnected = <label-disconnected>
 
-format-connected-prefix = "WLAN "
-format-connected-prefix-foreground = #0f0
+; Available tags:
+;   <label-connected> (default)
+;   <label-packetloss>
+;   <animation-packetloss>
+format-packetloss = <animation-packetloss> <label-connected>
+
+; All labels support the following tokens:
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %local_ip6% [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %upspeed%   [wireless+wired]
+;   %downspeed% [wireless+wired]
+;   %netspeed%  [wireless+wired] (%upspeed% + %downspeed%) (New in version 3.6.0)
+;   %linkspeed% [wired]
+;   %mac%       [wireless+wired] (New in version 3.6.0)
+
+; Default: %ifname% %local_ip%
+label-connected = [%upspeed:6% > %ifname% %signal%% > %downspeed:6%]
+label-connected-foreground = #32eba4
+
+; Default: (none)
+label-disconnected = %ifname% DOWN
+label-disconnected-foreground = #eb3464
+
+; Default: (none)
+;label-packetloss = %essid%
+;label-packetloss-foreground = #eefafafa
+
+; Only applies if <ramp-signal> is used
+ramp-signal-0 = s0%
+ramp-signal-0-foreground = #ff0000
+ramp-signal-1 = s20%
+ramp-signal-1-foreground = #ff0000
+ramp-signal-2 = s40%
+ramp-signal-2-foreground = #ffff00
+ramp-signal-3 = s60%
+ramp-signal-3-foreground = #ffff00
+ramp-signal-4 = s80%
+ramp-signal-4-foreground = #00ff00
+ramp-signal-5 = s100%
+ramp-signal-5-foreground = #00ff00
+
+; Only applies if <animation-packetloss> is used
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = #000000
+
+; Framerate in milliseconds
+animation-packetloss-framerate = 500
 
 [module/vpn]
 type = internal/network
 interface = tun0 
 interval = 3.0
 
+; Available tags:
+;   <label-connected> (default)
+;   <ramp-signal>
 format-connected = <label-connected>
-format-connected-foreground = #00ccff
-label-connected = KHAN
+
+; Available tags:
+;   <label-disconnected> (default)
+format-disconnected = <label-disconnected>
+
+; Available tags:
+;   <label-connected> (default)
+;   <label-packetloss>
+;   <animation-packetloss>
+format-packetloss = <animation-packetloss> <label-connected>
+
+; All labels support the following tokens:
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %local_ip6% [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %upspeed%   [wireless+wired]
+;   %downspeed% [wireless+wired]
+;   %netspeed%  [wireless+wired] (%upspeed% + %downspeed%) (New in version 3.6.0)
+;   %linkspeed% [wired]
+;   %mac%       [wireless+wired] (New in version 3.6.0)
+
+; Default: %ifname% %local_ip%
+label-connected = [%upspeed:6% > %ifname% > %downspeed:6%]
+label-connected-foreground = #32a4eb
+
+; Default: (none)
+label-disconnected = %ifname% DOWN
+label-disconnected-foreground = #eb3464
+
+; Default: (none)
+;label-packetloss = %essid%
+;label-packetloss-foreground = #eefafafa
+
+; Only applies if <ramp-signal> is used
+ramp-signal-0 = 😱
+ramp-signal-1 = 😠
+ramp-signal-2 = 😒
+ramp-signal-3 = 😊
+ramp-signal-4 = 😃
+ramp-signal-5 = 😈
+
+; Only applies if <animation-packetloss> is used
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = #000000
+
+; Framerate in milliseconds
+animation-packetloss-framerate = 500
 
 [module/date]
 type = internal/date
