@@ -2,9 +2,6 @@
 # X colors
 xrdb $HOME/.Xresources
 
-# bar
-polybar main &
-
 # hotkey daemon
 sxhkd &
 
@@ -24,4 +21,4 @@ redshift -l 42.0308:-93.6319 &
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 
 # window manager
-exec bspwm -c $HOME/.config/bspwm/bspwmrc
+bspwm -c $HOME/.config/bspwm/bspwmrc
