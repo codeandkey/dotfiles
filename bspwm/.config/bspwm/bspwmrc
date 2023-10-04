@@ -2,8 +2,7 @@
 # bspwm config
 
 # initialize desktops
-bspc monitor ^1 -d I II III IV V
-bspc monitor ^2 -d VI VII VIII IX X
+bspc monitor ^1 -d I II III IV V VI VII VIII IX X
 
 if [ `bspc query -M | wc -w` -lt 2 ]; then
     bspc monitor ^1 -d I II III IV V VI VII VIII IX X
@@ -14,7 +13,6 @@ bspc config normal_border_color "#262425"
 bspc config active_border_color "#262425"
 bspc config focused_border_color "#262425"
 bspc config presel_feedback_color "#262425"
-bspc config -m ^1 top_padding 37
 
 # mouse control
 bspc config focus_follows_pointer true
@@ -24,7 +22,10 @@ bspc config border_width 0
 
 # bar padding
 bspc config top_padding 25
-bspc config -m '^2' top_padding 0
+bspc config -m ^1 top_padding 37
 
 # make a window gap
 bspc config window_gap 0
+
+# bar init
+polybar main &
