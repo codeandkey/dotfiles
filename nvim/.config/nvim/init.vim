@@ -42,7 +42,7 @@ set signcolumn=number
 
 " colors
 syntax on
-colorscheme codedark
+colorscheme iceberg
 
 hi Pmenu ctermfg=white ctermbg=black
 hi PmenuSel ctermfg=white ctermbg=black
@@ -68,7 +68,5 @@ autocmd BufReadPost * silent! normal! g`"zv
 " smooth paging
 set nostartofline
 
-" colors
-colorscheme iceberg
-
+" ctrl-i to format
 nnoremap <silent> <C-I> :ClangFormat <CR>
