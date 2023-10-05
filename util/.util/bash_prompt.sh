@@ -17,7 +17,7 @@ PS1="\e[0;36m\u@\h\e[0m"
 # second, the ssh connection, if we are connected via ssh, in red
 SSH=$(ssh_connection)
 if [ -n "$SSH" ]; then
-    PS1="$PS1:\e[0;31mssh($$|$SSH_TTY)\e[0m"
+    PS1="$PS1:\e[0;31mssh\e[0m"
 fi
 
 # third, the current git branch, if we are in a git repo in green
