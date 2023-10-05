@@ -1,0 +1,4 @@
+live_config_reload = true
+
+[font.normal]
+family = "Mononoki Nerd Font Mono"
