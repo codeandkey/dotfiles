@@ -70,3 +70,7 @@ set nostartofline
 
 " ctrl-i to format
 nnoremap <silent> <C-I> :ClangFormat <CR>
+
+" ctrl-j, ctrl-k for page down/up
+nnoremap <silent> <C-J> <C-F>
+nnoremap <silent> <C-K> <C-B>
