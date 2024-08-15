@@ -1,3 +1,6 @@
+" codeandkey/dotfiles
+" neovim configuration
+
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'itchyny/lightline.vim'
@@ -34,9 +37,8 @@ set laststatus=2
 set guicursor=
 
 " indentation
-set expandtab
-set shiftwidth=2
-set tabstop=2
+set shiftwidth=4
+set tabstop=4
 
 " merge signs into LN
 set signcolumn=number
@@ -94,3 +96,11 @@ nnoremap <silent> <C-K> <C-B>
 set list
 set listchars=tab:▸\ ,trail:·,extends:»,precedes:«,nbsp:␣
 hi Whitespace ctermfg=red
+
+" highlight active line
+set cursorline
+
+" dynamic terminal cursors
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
+  \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
+  \,sm:block-blinkwait175-blinkoff150-blinkon175

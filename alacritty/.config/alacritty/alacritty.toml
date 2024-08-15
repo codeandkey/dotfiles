@@ -1,30 +1,40 @@
+# codeandkey/dotfiles
+# alacritty configuration
+
 live_config_reload = true
+
+[window]
+decorations_theme_variant = "Dark"
 
 [font.normal]
 family = "Mononoki Nerd Font Mono"
 
-# (Monokai Charcoal)
+[font]
+size = 10
+
+[font.offset]
+y = 0
 
 [colors.primary]
 background = '#000000'
 foreground = '#FFFFFF'
 
 [colors.normal]
-black = '#1a1a1a'
-red = '#f4005f'
-green = '#98e024'
-yellow = '#fa8419'
-blue = '#9d65ff'
+black   = '#1a1a1a'
+red     = '#f4005f'
+green   =  '#98e024'
+yellow  =  '#fa8419'
+blue    = '#9d65ff'
 magenta = '#f4005f'
-cyan = '#58d1eb'
-white = '#c4c5b5'
+cyan    = '#58d1eb'
+white   = '#c4c5b5'
 
 [colors.bright]
-black = '#625e4c'
-red = '#f4005f'
-green = '#98e024'
-yellow = '#e0d561'
-blue = '#9d65ff'
-magenta = '#f4005f'
-cyan = '#58d1eb'
-white = '#f6f6ef'
+black=   '#625e4c'
+red=     '#f4005f'
+green=   '#98e024'
+yellow=  '#e0d561'
+blue=    '#9d65ff'
+magenta= '#f4005f'
+cyan=    '#58d1eb'
+white=   '#f6f6ef'
