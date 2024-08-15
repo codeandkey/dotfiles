@@ -33,3 +33,6 @@ reset_readline_prompt_mode_strings () {
 PROMPT_COMMAND=reset_readline_prompt_mode_strings
 PS1=' '
 PS2=' ... '
+
+# keep block cursor for standard execution
+trap 'printf "\e[2 q"' DEBUG
