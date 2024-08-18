@@ -39,3 +39,6 @@ PS2=' ... '
 
 # keep block cursor for standard execution
 trap 'printf "\e[2 q"' DEBUG
+
+# windows sometimes needs homedir encouragement
+[ -n "$PS1" ] && builtin cd
