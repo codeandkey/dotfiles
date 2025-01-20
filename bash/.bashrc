@@ -1,6 +1,9 @@
 # codeandkey/dotfiles
 # bashrc
 
+# don't run on non-interactive shells
+[[ $- != *i* ]] && return
+
 # system-wide config
 [ -r "/etc/bashrc" ] && source /etc/bashrc
 [ -r "/etc/profile" ] && source /etc/profile
