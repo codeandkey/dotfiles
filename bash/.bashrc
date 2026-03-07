@@ -47,6 +47,3 @@ reset_readline_prompt_mode_strings () {
 PROMPT_COMMAND='printf "\e[2 q"; reset_readline_prompt_mode_strings'
 PS1=' '
 PS2=' ... '
-
-# windows sometimes needs homedir encouragement
-[ -n "$PS1" ] && builtin cd
