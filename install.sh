@@ -13,12 +13,6 @@
 THISDIR="$(dirname $(readlink -f $0))"
 BACKUPDIR="$HOME/.dotfiles_backup"
 
-# Check if we're on windows
-if [ -z "$IS_WINDOWS" ] && [ -n "$WINDIR" ]; then
-    IS_WINDOWS=1
-    echo "Windows detected"
-fi
-
 LOCAL_CONFIG="${HOME}/.config"
 ROAMING_CONFIG="$LOCAL_CONFIG"
 LOCAL_HOME="$HOME"
@@ -49,11 +43,3 @@ install_config() {
 install_config "${THISDIR}/bash/.bashrc" "${LOCAL_HOME}/.bashrc"
 install_config "${THISDIR}/tmux/.tmux.conf" "${LOCAL_HOME}/.tmux.conf"
 install_config "${THISDIR}/nvim" "${LOCAL_CONFIG}/nvim"
-install_config "${THISDIR}/alacritty" "${ROAMING_CONFIG}/alacritty"
-
-# On windows, override the default alacritty shell
-if [ "$IS_WINDOWS" = "1" ]; then
-  echo "Setting alacritty shell to git bash"
-  echo "[shell]" >> "${ROAMING_CONFIG}/alacritty/alacritty.toml"
-  echo "program = \"C:\\\\Program Files\\\\Git\\\\bin\\\\bash.exe\"" >> "${ROAMING_CONFIG}/alacritty/alacritty.toml"
-fi

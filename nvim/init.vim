@@ -4,11 +4,7 @@
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'itchyny/lightline.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'github/copilot.vim'
-Plug 'rhysd/vim-clang-format'
 Plug 'brenoprata10/nvim-highlight-colors'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'gregsexton/Muon'
 
 call plug#end()
@@ -61,14 +57,6 @@ hi Normal ctermbg=none
 
 " color highlight plugin
 lua require('nvim-highlight-colors').setup({})
-
-" treesitter config
-lua require('nvim-treesitter.configs').setup {
-      \  ensure_installed = {'c', 'cpp', 'python', 'lua', 'bash', 'json', 'yaml'},
-      \  highlight = {
-      \    enable = true
-      \  }
-      \}
 
 " italicize comments
 set t_ZH=[3m
