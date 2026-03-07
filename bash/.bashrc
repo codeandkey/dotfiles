@@ -31,6 +31,14 @@ set -o vi
 bind "set show-mode-in-prompt on"
 bind "set keyseq-timeout 0.05"
 
+# hybrid emacs bindings
+bind -m vi-command 'Control-l: clear-screen'
+bind -m vi-insert 'Control-l: clear-screen'
+bind -m vi-insert '"\C-a": beginning-of-line'
+bind -m vi-insert '"\C-e": end-of-line'
+bind -m vi-insert '"\C-k": kill-line'
+bind -m vi-insert '"\C-u": unix-line-discard'
+
 EMBEDDED_PS1='\1\e[0;36m\2\w\1\e[0m\2 $ '
 reset_readline_prompt_mode_strings () {
     bind "set vi-ins-mode-string \"${EMBEDDED_PS1@P}\1\e[32m\2ins >\1\e[92m\2>\1\e[0m\e[5 q\2>\""
