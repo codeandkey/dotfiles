@@ -1,14 +1,5 @@
 #!/bin/bash
 # codeandkey/dotfiles
-# cross-platform installer
-# 
-# Stow/symlinks aren't available on windows, so this script directly copies
-# files to the appropriate locations.
-#
-# It will still back up any existing dotfiles to a local directory.
-#
-# NOTE: this script is not targeted towards WSL, might need to define 
-# IS_WINDOWS=0 to override the win detection.
 
 THISDIR="$(dirname $(readlink -f $0))"
 BACKUPDIR="$HOME/.dotfiles_backup"
