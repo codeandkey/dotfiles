@@ -28,22 +28,16 @@ alias ssh='TERM=xterm-256color ssh'
 # vi mode and dynamic prompt
 set -o vi
 
-bind "set show-mode-in-prompt on"
-bind "set keyseq-timeout 0.05"
-
-# hybrid emacs bindings
 bind -m vi-command 'Control-l: clear-screen'
+bind -m vi-command '"\C-a": beginning-of-line'
+bind -m vi-command '"\C-e": end-of-line'
 bind -m vi-insert 'Control-l: clear-screen'
 bind -m vi-insert '"\C-a": beginning-of-line'
 bind -m vi-insert '"\C-e": end-of-line'
-bind -m vi-insert '"\C-k": kill-line'
-bind -m vi-insert '"\C-u": unix-line-discard'
 
-EMBEDDED_PS1='\1\e[0;36m\2\w\1\e[0m\2 $ '
-reset_readline_prompt_mode_strings () {
-    bind "set vi-ins-mode-string \"${EMBEDDED_PS1@P}\1\e[32m\2ins >\1\e[92m\2>\1\e[0m\e[5 q\2>\""
-    bind "set vi-cmd-mode-string \"${EMBEDDED_PS1@P}\1\e[33m\2cmd >\1\e[93m\2>\1\e[0m\e[2 q\2>\""
-}
-PROMPT_COMMAND='printf "\e[2 q"; reset_readline_prompt_mode_strings'
-PS1=' '
-PS2=' ... '
+bind "set show-mode-in-prompt on"
+bind "set keyseq-timeout 0.05"
+
+PS1=" \[\e[0;36m\]\W\[\e[0m\] "
+bind "set vi-ins-mode-string \1\e[38;5;39m\e[5 q\2>>\1\e[0m\2 "
+bind "set vi-cmd-mode-string \1\e[38;5;208m\e[2 q\2::\1\e[0m\2 "
